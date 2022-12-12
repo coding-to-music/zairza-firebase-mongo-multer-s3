@@ -9,3 +9,4 @@ views/pages/dashboard/template.ejs
 emails/
 yarn.lock
 package-lock.json
+.vercel
