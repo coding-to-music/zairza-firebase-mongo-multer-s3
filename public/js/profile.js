@@ -116,9 +116,11 @@ function validateEmail(email) {
 
 //  Registration number validate
 function validateRegistrationNumber(reg_no) {
-  const re = /^[0-9]{10}$/;
-  const re2 = /^[0-9]{2}[A-Z]+[0-9]+$/; // For new registration numbers issued for 1st years
-  return re.test(reg_no) || re2.test(reg_no);
+  return 1;
+
+  // const re = /^[0-9]{10}$/;
+  // const re2 = /^[0-9]{2}[A-Z]+[0-9]+$/; // For new registration numbers issued for 1st years
+  // return re.test(reg_no) || re2.test(reg_no);
 }
 
 $("input[type='email']").on("change", function () {
@@ -179,14 +181,16 @@ function updateProfile() {
   //   name: $name,
   // };
   const data = new FormData();
-  data.append('email', $email);
-  data.append('registrationNo', $registration_no);
-  data.append('branch', $branch);
+  data.append("email", $email);
+  data.append("registrationNo", $registration_no);
+  data.append("branch", $branch);
   // data.append('wing', $wing);
-  $wings.forEach((wing) => { data.append("wing[]", wing) });
-  data.append('name', $name);
+  $wings.forEach((wing) => {
+    data.append("wing[]", wing);
+  });
+  data.append("name", $name);
   if (profileImage) {
-    data.append('profileImage', profileImage);
+    data.append("profileImage", profileImage);
     if (profileImage.size > 1000000) {
       showToast(400, "File size limit is 1MB 😑");
       return;
@@ -369,8 +373,8 @@ $(document).ready(function () {
         select
           .find(
             "option:contains(" +
-            select.children("div").children("a:first").text() +
-            ")"
+              select.children("div").children("a:first").text() +
+              ")"
           )
           .prop("selected", false);
       }
