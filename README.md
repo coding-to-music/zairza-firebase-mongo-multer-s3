@@ -13,7 +13,37 @@ https://zairza.in/
 ## Environment variables:
 
 ```java
+# 👋 Welcome, we're glad you're setting up an installation of Zairza-web. Copy this
+# file to .env or set the variables in your local environment manually.
 
+# NODE ENVIRONMENT
+# use development for Development mode
+# use production for Production mode
+
+NODE_ENV=
+
+# FIREBASE
+# use firebase credentials to access these files
+
+FIREBASE_MEASUREMENT_ID=
+FIREBASE_APP_ID=
+FIREBASE_MESSAGING_SENDER_ID=
+FIREBASE_API_KEY=
+FIREBASE_PROJECT_ID=
+FIREBASE_CLIENT_EMAIL=
+FIREBASE_PRIVATE_KEY=
+
+# DATABASE
+# if you are using hosted mongodb, mongodb connection string will look like this
+# mongodb+srv://<username>:<password>@<server_url>/<db_name>?retryWrites=true&w=majority
+# for local instance use this connection string
+# mongodb://localhost:27017/<db_name>?retryWrites=true&w=majority
+
+MONGO_URI=
+
+# SENDGRID
+ZAIRZA_SENDGRID_API=
+ZAIRZA_MAIL=
 ```
 
 ## GitHub
