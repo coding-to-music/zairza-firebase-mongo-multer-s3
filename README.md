@@ -33,6 +33,11 @@ FIREBASE_PROJECT_ID=
 FIREBASE_CLIENT_EMAIL=
 FIREBASE_PRIVATE_KEY=
 
+APP_AWS_ACCESS_KEY_ID=""
+APP_AWS_SECRET_ACCESS_KEY=""
+APP_AWS_REGION="us-east-1"
+APP_AWS_BUCKET_NAME="zairza-firebase-mongo-multer-s3"
+
 # DATABASE
 # if you are using hosted mongodb, mongodb connection string will look like this
 # mongodb+srv://<username>:<password>@<server_url>/<db_name>?retryWrites=true&w=majority
