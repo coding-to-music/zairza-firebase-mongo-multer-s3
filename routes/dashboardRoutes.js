@@ -13,7 +13,7 @@ router.get("/home", checkIfAuthenticated, function (req, res, next) {
     if (err) {
       return next(err);
     }
-    fetch("https://api.github.com/users/zairza-cetb/repos?sort=updated_at")
+    fetch("https://api.github.com/users/coding-to-music/repos?sort=updated_at")
       .then((res) => res.json())
       .then((data) => {
         return res.render("pages/dashboard/index", {
@@ -28,7 +28,7 @@ router.get("/home", checkIfAuthenticated, function (req, res, next) {
 
 /* GET projects page. */
 router.get("/projects", checkIfAuthenticated, function (req, res, next) {
-  fetch("https://api.github.com/users/zairza-cetb/repos?sort=updated_at")
+  fetch("https://api.github.com/users/coding-to-music/repos?sort=updated_at")
     .then((res) => res.json())
     .then((data) => {
       return res.render("pages/dashboard/projects", {
@@ -55,7 +55,7 @@ router.get(
   "/mentorsdashboard",
   checkIfAuthenticated,
   function (req, res, next) {
-    fetch("https://api.github.com/users/zairza-cetb/repos?sort=updated_at")
+    fetch("https://api.github.com/users/coding-to-music/repos?sort=updated_at")
       .then((res) => res.json())
       .then((data) => {
         return res.render("pages/dashboard/mentorsdashboard", {
