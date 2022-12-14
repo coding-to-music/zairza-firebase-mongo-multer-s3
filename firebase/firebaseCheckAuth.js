@@ -2,21 +2,14 @@
 
 const timestamp = require("time-stamp");
 
-// console.log(timestamp.utc("YYYY/MM/DD HH:mm:ss"));
-// console.log(timestamp("YYYY/MM/DD HH:mm:ss"));
-// console.log(timestamp("YYYY/MM/DD HH:mm:ss:ms"));
-
-// function myFunction(str) {
-//   console.log(str);
-// }
-
-// myFunction("Hello World!");
-
 function myLogger(str) {
   const filename = "firebaseCheckAuth";
   const timestamp = require("time-stamp");
 
-  console.log(">>>>>>>>>>>>>> " + timestamp("YYYY/MM/DD HH:mm:ss:ms " + filename + " >>> " + str));
+  console.log(
+    ">>>>>>>>>>>>>> " +
+      timestamp("YYYY/MM/DD HH:mm:ss:ms " + filename + " >>> " + str)
+  );
 }
 
 myLogger("Hello World from myLogger!");
@@ -65,7 +58,9 @@ module.exports = checkIfAuthenticated = (req, res, next) => {
               return next(err);
             }
 
-            myLogger("getAuthToken - ExistingUser userInfo.email " + userInfo.email);
+            myLogger(
+              "getAuthToken - ExistingUser userInfo.email " + userInfo.email
+            );
             let userDetails = { firebaseUid: userInfo.uid };
 
             if (userInfo.email && !user) userDetails["email"] = userInfo.email;
