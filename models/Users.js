@@ -13,6 +13,8 @@ function myLogger(str) {
   );
 }
 
+myLogger("Here I am!");
+
 const UserSchema = new mongoose.Schema(
   {
     firebaseUid: {
