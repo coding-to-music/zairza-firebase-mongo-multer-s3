@@ -9,7 +9,7 @@ router.use(partials());
 
 /* GET dashboard page. */
 router.get("/home", checkIfAuthenticated, function (req, res, next) {
-  ValidRegNos.count({}, function (err, count) {
+  ValidRegNos.countDocuments({}, function (err, count) {
     if (err) {
       return next(err);
     }

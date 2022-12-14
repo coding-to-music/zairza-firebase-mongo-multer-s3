@@ -33,6 +33,7 @@
     "node-fetch": "^2.6.1",
     "nodemailer": "^6.6.2",
     "path": "^0.12.7",
+    "time-stamp": "^2.2.0",
     "tslib": "^2.1.0"
   },
   "devDependencies": {
