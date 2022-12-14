@@ -55,13 +55,17 @@ module.exports = checkIfAuthenticated = (req, res, next) => {
 
       User.findOne({ firebaseUid: userInfo.uid }, function (err, existingUser) {
         if (err) {
+          myLogger("getAuthToken - User.findOne err");
           return next(err);
         }
         if (!existingUser) {
           User.findOne({ email: userInfo.email }, function (err, user) {
             if (err) {
+              myLogger("getAuthToken - !existingUser User.findOne err");
               return next(err);
             }
+
+            myLogger("getAuthToken - ExistingUser userInfo.email " + userInfo.email);
             let userDetails = { firebaseUid: userInfo.uid };
 
             if (userInfo.email && !user) userDetails["email"] = userInfo.email;
@@ -70,6 +74,7 @@ module.exports = checkIfAuthenticated = (req, res, next) => {
               userDetails["profileImage"] = userInfo.picture;
 
             User.create(userDetails, function (err, newUser) {
+              myLogger("getAuthToken - User.create(userDetails ");
               if (err) {
                 return next(err);
               }
@@ -79,6 +84,8 @@ module.exports = checkIfAuthenticated = (req, res, next) => {
           });
         } else {
           req.user = existingUser;
+
+          myLogger("getAuthToken - req.user = existingUser " + req.user);
 
           //SKills++
           Domains.find({ mentors: req.user._id }, function (err, domains) {
