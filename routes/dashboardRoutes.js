@@ -7,8 +7,11 @@ const ValidRegNos = require("../models/ValidRegNos");
 
 router.use(partials());
 
+console.log(">>>>>>>>>>>>>> dashboardRoutes ENTERING");
+
 /* GET dashboard page. */
 router.get("/home", checkIfAuthenticated, function (req, res, next) {
+  console.log(">>>>>>>>>>>>>> dashboardRoutes /home");
   ValidRegNos.countDocuments({}, function (err, count) {
     if (err) {
       return next(err);
@@ -28,6 +31,7 @@ router.get("/home", checkIfAuthenticated, function (req, res, next) {
 
 /* GET projects page. */
 router.get("/projects", checkIfAuthenticated, function (req, res, next) {
+  console.log(">>>>>>>>>>>>>> dashboardRoutes /projects");
   fetch("https://api.github.com/users/coding-to-music/repos?sort=updated_at")
     .then((res) => res.json())
     .then((data) => {
@@ -44,6 +48,7 @@ router.get(
   "/eventPosterUpload",
   checkIfAuthenticated,
   function (req, res, next) {
+    console.log(">>>>>>>>>>>>>> dashboardRoutes /eventPosterUpload");
     res.render("pages/dashboard/eventPosterUpload", {
       user: req.user,
       layout: "pages/base",
@@ -55,6 +60,7 @@ router.get(
   "/mentorsdashboard",
   checkIfAuthenticated,
   function (req, res, next) {
+    console.log(">>>>>>>>>>>>>> dashboardRoutes /mentorsdashboard");
     fetch("https://api.github.com/users/coding-to-music/repos?sort=updated_at")
       .then((res) => res.json())
       .then((data) => {
