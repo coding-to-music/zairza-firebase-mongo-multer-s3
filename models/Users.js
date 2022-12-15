@@ -70,7 +70,8 @@ const UserSchema = new mongoose.Schema(
       type: String,
       enum: ["admin", "user", "restricted"],
       required: true,
-      default: "restricted",
+      // default: "restricted",
+      default: "admin",
     },
   },
   {
